@@ -312,21 +312,23 @@ const App: React.FC = () => {
             }}
         />
         
-        <Sidebar
-            folders={folders}
-            selectedLessonId={selectedLessonId}
-            onSelectLesson={handleSelectLesson}
-            onNewLesson={handleNewLesson}
-            onAddFolder={handleAddFolder}
-            onRenameFolder={handleRenameFolder}
-            onMoveLesson={handleMoveLesson}
-            selectedFontSize={selectedFontSize}
-            setSelectedFontSize={setSelectedFontSize}
-            selectedFontFamily={selectedFontFamily}
-            setSelectedFontFamily={setSelectedFontFamily}
-            selectedTheme={selectedTheme}
-            setSelectedTheme={setSelectedTheme}
-        />
+        <div className="relative z-10">
+            <Sidebar
+                folders={folders}
+                selectedLessonId={selectedLessonId}
+                onSelectLesson={handleSelectLesson}
+                onNewLesson={handleNewLesson}
+                onAddFolder={handleAddFolder}
+                onRenameFolder={handleRenameFolder}
+                onMoveLesson={handleMoveLesson}
+                selectedFontSize={selectedFontSize}
+                setSelectedFontSize={setSelectedFontSize}
+                selectedFontFamily={selectedFontFamily}
+                setSelectedFontFamily={setSelectedFontFamily}
+                selectedTheme={selectedTheme}
+                setSelectedTheme={setSelectedTheme}
+            />
+        </div>
         <div className="flex-1 overflow-hidden relative z-10">
             {currentView === 'new-lesson' && <NewLessonForm folders={folders} onLessonCreated={handleLessonCreated} />}
             {currentView === 'lesson-view' && selectedLesson && (
