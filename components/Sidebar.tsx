@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Folder, Lesson } from '../types';
-import { FolderIcon, FileIcon, PlusIcon, PencilIcon } from './Icons';
+import { FolderIcon, FileIcon, PlusIcon, PencilIcon, LogoIcon } from './Icons';
 
 interface SidebarProps {
   folders: Folder[];
@@ -65,7 +65,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className="w-72 bg-gray-100 text-gray-800 dark:bg-gray-950 dark:text-gray-300 flex flex-col h-full border-r border-gray-300 dark:border-gray-700/50">
       <div className="p-4 border-b border-gray-300 dark:border-gray-700/50">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white">Claricode</h1>
+        <div className="flex items-center space-x-3">
+          <LogoIcon className="w-8 h-8 text-gray-900 dark:text-white" />
+          <h1 className="text-xl font-bold text-gray-900 dark:text-white">Claricode</h1>
+        </div>
       </div>
       <div className="p-4">
         <button
