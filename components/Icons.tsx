@@ -49,9 +49,22 @@ export const TrashIcon = ({ className = 'w-6 h-6' }: { className?: string }) => 
     </svg>
 );
 
+/*
 export const LogoIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={className}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.03 1.121 0 1.131.094 1.976 1.057 1.976 2.192V7.5M8.25 7.5h7.5m-7.5 0-1 4.5m7.5 0-1-4.5m-4.5 0v7.5m0 0-1 4.5m1-4.5h.008m0 0h.008m0 0h.008m2.086 0-1-4.5m1 4.5h.008m0 0h.008m0 0h.008M10 1.5a9 9 0 1 0 4 17.585l-4-4.5-4 4.5A9 9 0 0 0 10 1.5Z" />
+  </svg>
+);*/
+export const LogoIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+    {/* Left angle bracket */}
+    <path d="M8.5 6L3.5 12L8.5 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    
+    {/* Center circle */}
+    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+    
+    {/* Right angle bracket */}
+    <path d="M15.5 6L20.5 12L15.5 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
   </svg>
 );
 
