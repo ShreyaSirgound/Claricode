@@ -65,7 +65,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className="w-72 bg-gray-100 text-gray-800 dark:bg-gray-950 dark:text-gray-300 flex flex-col h-full border-r border-gray-300 dark:border-gray-700/50">
       <div className="p-4 border-b border-gray-300 dark:border-gray-700/50">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white">CS Lesson Architect</h1>
+        <h1 className="text-xl font-bold text-gray-900 dark:text-white">Claricode</h1>
       </div>
       <div className="p-4">
         <button

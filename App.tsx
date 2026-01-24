@@ -250,7 +250,7 @@ const App: React.FC = () => {
         return folder?.lessons.find(l => l.id === selectedLessonId) || null;
     };
     
-    if (!isAuthenticated) {
+    /*if (!isAuthenticated) {
         return (
             <div className="flex flex-col items-center justify-center h-screen bg-gray-50 text-gray-900 dark:bg-[#1A1A1A] dark:text-white p-4 landing-page">
                 <div className="relative z-10 w-full max-w-lg text-center p-8 bg-white dark:bg-gray-900 backdrop-blur-2xl border border-gray-300 dark:border-gray-600/50 rounded-2xl shadow-2xl shadow-blue-500/10">
@@ -268,6 +268,33 @@ const App: React.FC = () => {
                 </div>
             </div>
         )
+    }*/
+   if (!isAuthenticated) {
+    return (
+        <div className="relative flex flex-col items-center justify-center h-screen bg-gray-50 text-gray-900 dark:bg-[#1A1A1A] dark:text-white p-4 landing-page overflow-hidden">
+            {/* Mouse-tracking aura effect */}
+            <div 
+                className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+                style={{
+                    background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)`
+                }}
+            />
+            
+            <div className="relative z-10 w-full max-w-lg text-center p-8 bg-white dark:bg-gray-900 backdrop-blur-2xl border border-gray-300 dark:border-gray-600/50 rounded-2xl shadow-2xl shadow-blue-500/10">
+                <LogoIcon className="w-24 h-24 text-blue-600 dark:text-blue-500 mb-6 mx-auto" />
+                <h1 className="text-5xl font-bold mb-4">Claricode</h1>
+                <p className={`text-xl text-gray-700 dark:text-gray-400 mb-8 h-14 flex items-center justify-center transition-opacity duration-500 ${isTaglineVisible ? 'opacity-100' : 'opacity-0'}`}>
+                    {taglines[currentTaglineIndex]}
+                </p>
+                <button 
+                    onClick={() => setIsAuthenticated(true)}
+                    className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+                >
+                    Login
+                </button>
+            </div>
+        </div>
+    )
     }
 
     const selectedLesson = getSelectedLesson();
