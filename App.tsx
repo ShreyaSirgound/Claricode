@@ -5,6 +5,13 @@ import { LessonView } from './components/LessonView';
 import { Folder, Lesson } from './types';
 import { LogoIcon } from './components/Icons';
 
+const taglines = [
+    "From code to clarity.",
+    "Learn code like your instructor meant it.",
+    "Upload. Understand. Excel.",
+    "Your AI tutor for every code snippet."
+];
+
 const App: React.FC = () => {
     const [folders, setFolders] = useState<Folder[]>(() => {
         try {
@@ -20,6 +27,10 @@ const App: React.FC = () => {
     const [currentView, setCurrentView] = useState<'new-lesson' | 'lesson-view'>('new-lesson');
     const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
     const [selectedFolderId, setSelectedFolderId] = useState<string | null>(null);
+
+    // Landing page tagline animation state
+    const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
+    const [isTaglineVisible, setIsTaglineVisible] = useState(true);
 
     // Font accessibility states
     const [selectedFontSize, setSelectedFontSize] = useState<number>(() => {
@@ -136,6 +147,22 @@ const App: React.FC = () => {
         };
     }, [selectedTheme]); // Dependency array ensures effect re-runs when selectedTheme changes
 
+    // Effect for tagline animation on landing page
+    useEffect(() => {
+        if (!isAuthenticated) {
+            const intervalId = setInterval(() => {
+                setIsTaglineVisible(false); // Start fade out
+
+                setTimeout(() => {
+                    setCurrentTaglineIndex((prevIndex) => (prevIndex + 1) % taglines.length);
+                    setIsTaglineVisible(true); // Start fade in
+                }, 500); // Wait for fade-out to complete
+            }, 4000); // Change tagline every 4 seconds
+
+            return () => clearInterval(intervalId);
+        }
+    }, [isAuthenticated]);
+
 
     const handleNewLesson = () => {
         setCurrentView('new-lesson');
@@ -225,18 +252,19 @@ const App: React.FC = () => {
     
     if (!isAuthenticated) {
         return (
-            <div className="flex flex-col items-center justify-center h-screen bg-gray-50 text-gray-900 dark:bg-[#1A1A1A] dark:text-white p-4">
-                <div className="w-full max-w-lg text-center p-8 bg-white dark:bg-gray-900 backdrop-blur-2xl border border-gray-300 dark:border-gray-600/50 rounded-2xl shadow-2xl shadow-blue-500/10">
+            <div className="flex flex-col items-center justify-center h-screen bg-gray-50 text-gray-900 dark:bg-[#1A1A1A] dark:text-white p-4 landing-page">
+                <div className="relative z-10 w-full max-w-lg text-center p-8 bg-white dark:bg-gray-900 backdrop-blur-2xl border border-gray-300 dark:border-gray-600/50 rounded-2xl shadow-2xl shadow-blue-500/10">
                     <LogoIcon className="w-24 h-24 text-blue-600 dark:text-blue-500 mb-6 mx-auto" />
-                    <h1 className="text-5xl font-bold mb-4">CS Lesson Architect</h1>
-                    <p className="text-xl text-gray-700 dark:text-gray-400 mb-8">Your AI-powered study partner.</p>
+                    <h1 className="text-5xl font-bold mb-4">Claricode</h1>
+                    <p className={`text-xl text-gray-700 dark:text-gray-400 mb-8 h-14 flex items-center justify-center transition-opacity duration-500 ${isTaglineVisible ? 'opacity-100' : 'opacity-0'}`}>
+                        {taglines[currentTaglineIndex]}
+                    </p>
                     <button 
                         onClick={() => setIsAuthenticated(true)}
                         className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
                     >
-                        Enter Application
+                        Login
                     </button>
-                    <p className="mt-4 text-xs text-gray-500">(This is a mock authentication for demonstration)</p>
                 </div>
             </div>
         )
