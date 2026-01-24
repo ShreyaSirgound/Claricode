@@ -303,37 +303,43 @@ const App: React.FC = () => {
     const fontFamilyClass = selectedFontFamily === 'serif' ? 'font-serif' : (selectedFontFamily === 'monospace' ? 'font-mono' : ''); // Removed 'font-sans' default here
 
     return (
-        <div className={`flex h-screen bg-transparent text-gray-900 dark:text-white ${fontFamilyClass}`}>
-            <Sidebar
-                folders={folders}
-                selectedLessonId={selectedLessonId}
-                onSelectLesson={handleSelectLesson}
-                onNewLesson={handleNewLesson}
-                onAddFolder={handleAddFolder}
-                onRenameFolder={handleRenameFolder}
-                onMoveLesson={handleMoveLesson}
-                // Pass font accessibility props
-                selectedFontSize={selectedFontSize}
-                setSelectedFontSize={setSelectedFontSize}
-                selectedFontFamily={selectedFontFamily}
-                setSelectedFontFamily={setSelectedFontFamily}
-                // Pass theme accessibility props
-                selectedTheme={selectedTheme}
-                setSelectedTheme={setSelectedTheme}
-            />
-            <div className="flex-1 overflow-hidden">
-                {currentView === 'new-lesson' && <NewLessonForm folders={folders} onLessonCreated={handleLessonCreated} />}
-                {currentView === 'lesson-view' && selectedLesson && (
-                    <LessonView lesson={selectedLesson} onUpdateLesson={handleUpdateLesson} selectedFontFamily={selectedFontFamily} />
-                )}
-                {currentView === 'lesson-view' && !selectedLesson && (
-                    <div className="flex items-center justify-center h-full text-gray-600 dark:text-gray-500">
-                        <p>Select a lesson to view or create a new one.</p>
-                    </div>
-                )}
-            </div>
+    <div className={`relative flex h-screen bg-transparent text-gray-900 dark:text-white ${fontFamilyClass} overflow-hidden`}>
+        {/* Mouse-tracking aura effect */}
+        <div 
+            className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+            style={{
+                background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)`
+            }}
+        />
+        
+        <Sidebar
+            folders={folders}
+            selectedLessonId={selectedLessonId}
+            onSelectLesson={handleSelectLesson}
+            onNewLesson={handleNewLesson}
+            onAddFolder={handleAddFolder}
+            onRenameFolder={handleRenameFolder}
+            onMoveLesson={handleMoveLesson}
+            selectedFontSize={selectedFontSize}
+            setSelectedFontSize={setSelectedFontSize}
+            selectedFontFamily={selectedFontFamily}
+            setSelectedFontFamily={setSelectedFontFamily}
+            selectedTheme={selectedTheme}
+            setSelectedTheme={setSelectedTheme}
+        />
+        <div className="flex-1 overflow-hidden relative z-10">
+            {currentView === 'new-lesson' && <NewLessonForm folders={folders} onLessonCreated={handleLessonCreated} />}
+            {currentView === 'lesson-view' && selectedLesson && (
+                <LessonView lesson={selectedLesson} onUpdateLesson={handleUpdateLesson} selectedFontFamily={selectedFontFamily} />
+            )}
+            {currentView === 'lesson-view' && !selectedLesson && (
+                <div className="flex items-center justify-center h-full text-gray-600 dark:text-gray-500">
+                    <p>Select a lesson to view or create a new one.</p>
+                </div>
+            )}
         </div>
-    );
+    </div>
+);
 };
 
 export default App;
