@@ -56,7 +56,7 @@ export const generateVisual = async (prompt: string): Promise<string> => {
         `;
 
         const response = await ai.models.generateContent({
-            model: 'gemini-1.5-pro',
+            model: 'gemini-1.5-flash',
             contents: {
                 parts: [{ text: enhancedPrompt }],
             },
@@ -117,7 +117,7 @@ export const generateLesson = async (topic: string, files: File[], notes: string
 
     try {
         const response = await ai.models.generateContent({
-            model: 'gemini-1.5-pro',
+            model: 'gemini-2.5-flash',
             contents: {
                 parts: [{ text: prompt }, ...imageParts]
             },
@@ -197,7 +197,7 @@ export const chatWithBot = async (
     }
     
     const chat = ai.chats.create({
-        model: 'gemini-1.5-pro',
+        model: 'gemini-2.5-flash',
         config: {
             systemInstruction: `You are a helpful and engaging AI tutor for a computer science student. Your primary goal is to keep the student engaged and curious.
 
