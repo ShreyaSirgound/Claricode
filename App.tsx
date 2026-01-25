@@ -257,7 +257,7 @@ const App: React.FC = () => {
             <div 
                 className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
                 style={{
-                    background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)`
+                    background: `radial-gradient(700px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)`
                 }}
             />
             
@@ -289,7 +289,7 @@ const App: React.FC = () => {
         <div 
             className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
             style={{
-                background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)`
+                background: `radial-gradient(700px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)`
             }}
         />
         

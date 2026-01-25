@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      path, circle { stroke: #60a5fa; }
+    }
+    @media (prefers-color-scheme: light) {
+      path, circle { stroke: #2563eb; }
+    }
+  </style>
+  
+  <!-- Left angle bracket -->
+  <path d="M6.5 6L1.5 12L6.5 18" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Center circle (hollow) -->
+  <circle cx="12" cy="12" r="3" stroke="#2563eb" stroke-width="2" fill="none"/>
+  
+  <!-- Right angle bracket -->
+  <path d="M17.5 6L22.5 12L17.5 18" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
