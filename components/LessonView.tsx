@@ -7,7 +7,6 @@ import { jsPDF } from 'jspdf';
 import { generateSpeech } from '../services/geminiService';
 import HighlightedContent from './HighlightedContent'; // Import the default export
 import CodeSnippet from './CodeSnippet'; // Import CodeSnippet from its dedicated file
-import { MermaidRenderer } from './MermaidRenderer';
 
 
 // Type declaration for the globally available jsPDF library
@@ -536,25 +535,12 @@ export const LessonView: React.FC<LessonViewProps> = ({ lesson, onUpdateLesson, 
                                             </div>
                                         </div>
                                         
-                                        {/*
                                         {concept.visualExample && concept.visualExample.trim() !== '' && (
                                             <div>
                                                 <h4 className="flex items-center font-bold text-gray-600 uppercase tracking-wider text-sm mb-2 dark:text-gray-400"><EyeIcon className="w-4 h-4 mr-2" />Visual Example</h4>
                                                 <VisualExampleDisplay 
                                                     prompt={concept.visualExample} 
                                                     onImageLoaded={(url) => handleImageLoaded(concept.id, url)}
-                                                />
-                                            </div>
-                                        )}*/}
-                                        {concept.visualExample && concept.visualExample.trim() !== '' && (
-                                            <div>
-                                                <h4 className="flex items-center font-bold text-gray-600 uppercase tracking-wider text-sm mb-2 dark:text-gray-400">
-                                                    <EyeIcon className="w-4 h-4 mr-2" />
-                                                    Visual Diagram
-                                                </h4>
-                                                <MermaidRenderer 
-                                                    chart={concept.visualExample} 
-                                                    className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700"
                                                 />
                                             </div>
                                         )}
