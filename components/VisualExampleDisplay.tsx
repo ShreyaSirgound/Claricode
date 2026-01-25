@@ -30,7 +30,7 @@ export const VisualExampleDisplay: React.FC<VisualExampleDisplayProps> = ({ prom
       } catch (e: any) {
         if (!isCancelled) {
           setError(e.message || 'Failed to generate visual. Please try again later.');
-          console.error(e);
+          console.log(error(e));
         }
       } finally {
         if (!isCancelled) {
