@@ -78,7 +78,7 @@ export const generateVisual = async (prompt: string): Promise<string> => {
     } catch (error) {
         console.error("Error generating visual:", error);
         if (error instanceof Error) {
-            throw new Error(`Failed to generate visual from AI: ${error.message}`);
+            throw new Error(`Failed to generate visual from AI`);
         }
         throw new Error("Failed to generate visual from AI.");
     }
