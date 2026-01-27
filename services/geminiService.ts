@@ -56,7 +56,7 @@ export const generateVisual = async (prompt: string): Promise<string> => {
         `;
 
         const response = await ai.models.generateContent({
-            model: 'models/gemini-2.5-flash-image',
+            model: 'gemini-2.5-flash-image',
             contents: {
                 parts: [{ text: enhancedPrompt }],
             },
