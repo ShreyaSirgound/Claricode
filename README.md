@@ -7,8 +7,9 @@ structured, editable lessons with definitions, examples, and visuals.
 
 **[→ Try the live app](https://claricode.netlify.app/)** · [Devpost](https://devpost.com/software/claricode)
 
-![Claricode demo](./assets/demo.gif)
-<!-- Record a short GIF of the app in action and add it here -->
+<div align="center">
+  <img src="/demo.gif" width="700" alt="Claricode demo"/>
+</div>
 
 ---
 
